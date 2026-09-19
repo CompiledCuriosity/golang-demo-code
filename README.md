@@ -10,8 +10,9 @@ The repo is one Go module, so everything runs from the repo root:
 go run ./<video>/<program>
 ```
 
-Go 1.22 or later. Some programs deadlock or crash on purpose; the folder README says which ones and why.
+Go 1.25 or later (the worker-pool code uses `sync.WaitGroup.Go`). Some programs deadlock or crash on purpose; the folder README says which ones and why.
 
 ## Videos
 
 - [`concurrency-patterns`](concurrency-patterns) - fan-out and fan-in, the pipeline, and errgroup
+- [`worker-pool`](worker-pool) - running only N jobs at once, and picking N

@@ -4,6 +4,8 @@ Source for [Go Concurrency Patterns in 11 Minutes: Fan-Out, Pipeline, errgroup](
 
 Every program here is the one that produced the output shown in the video. The job is always the same: hash twelve documents, where hashing one document means a million chained SHA-256 rounds, so the work is real and the timings mean something.
 
+Related: [`worker-pool`](../worker-pool) takes the same fan-out shape and asks how many workers there should be, and how to measure the answer.
+
 Run any of them from the repo root:
 
 ```
