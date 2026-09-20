@@ -16,3 +16,4 @@ Go 1.25 or later (the worker-pool code uses `sync.WaitGroup.Go`). Some programs 
 
 - [`concurrency-patterns`](concurrency-patterns) - fan-out and fan-in, the pipeline, and errgroup
 - [`worker-pool`](worker-pool) - running only N jobs at once, and picking N
+- [`pipeline-pattern`](pipeline-pattern) - stages in a line, the goroutine leak when the reader leaves early, and the fix
