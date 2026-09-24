@@ -18,3 +18,4 @@ Go 1.25 or later (the worker-pool code uses `sync.WaitGroup.Go`). Some programs 
 - [`worker-pool`](worker-pool) - running only N jobs at once, and picking N
 - [`pipeline-pattern`](pipeline-pattern) - stages in a line, the goroutine leak when the reader leaves early, and the fix
 - [`enums`](enums) - building an enum from iota, a type, and String, and the two holes an unchecked int leaves open
+- [`error-handling`](error-handling) - %v against %w, the error chain, errors.Is and errors.As
