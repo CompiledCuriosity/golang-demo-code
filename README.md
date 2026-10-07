@@ -20,3 +20,4 @@ Go 1.25 or later (the worker-pool code uses `sync.WaitGroup.Go`). Some programs 
 - [`enums`](enums) - building an enum from iota, a type, and String, and the two holes an unchecked int leaves open
 - [`error-handling`](error-handling) - %v against %w, the error chain, errors.Is and errors.As
 - [`rate-limiter`](rate-limiter) - the token bucket: capacity and refill rate, lazy refill, golang.org/x/time/rate, and why a counter's window has an edge
+- [`distributed-rate-limiter`](distributed-rate-limiter) - one token bucket shared in Redis by ten servers, the read-modify-write race, and the atomic Lua script that fixes it
