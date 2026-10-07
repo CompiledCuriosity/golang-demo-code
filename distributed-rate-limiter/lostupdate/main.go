@@ -68,6 +68,7 @@ func main() {
 		}
 	}
 	full, sawOne := 0, 0
+	var allReads []float64
 	var ends []float64
 	counts := make([]int, trials)
 	for t := range counts {
@@ -107,6 +108,7 @@ func main() {
 		if one {
 			sawOne++
 		}
+		allReads = append(allReads, reads...)
 		end, _ := strconv.ParseFloat(servers[0].rdb.HGet(ctx, key, "tokens").Val(), 64)
 		ends = append(ends, end)
 	}
@@ -117,6 +119,16 @@ func main() {
 		}
 	}
 	sort.Float64s(ends)
+	// what the reads saw, across every trial: whole tokens, rounded down
+	hist := map[int]int{}
+	for _, r := range allReads {
+		hist[int(r)]++
+	}
+	fmt.Fprintf(os.Stderr, "reads by tokens seen (rounded down), %d reads: ", len(allReads))
+	for k := 5; k >= 0; k-- {
+		fmt.Fprintf(os.Stderr, "%d:%d ", k, hist[k])
+	}
+	fmt.Fprintln(os.Stderr)
 	// every line varies run to run (the instrumentation shifts the timing), so
 	// nothing here is part of the recorded output
 	fmt.Fprintf(os.Stderr, "trials where all 50 got in, so the bucket remembers at most 5 of 50 takes: %d of %d\n", atMostFive, trials)
